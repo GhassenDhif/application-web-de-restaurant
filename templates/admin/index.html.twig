@@ -1,0 +1,260 @@
+
+{% extends 'base.html.twig'%}
+
+{% block title %}<title>AdminPanel</title>{% endblock %}
+
+      
+{% block content %}
+
+
+
+
+
+          <li>
+            <a href="{{ path('app_dashboard') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+   <li class="active" >
+
+            <a href="{{path('admin_list')}}">
+              <i class="nc-icon nc-bank"></i>
+              <p>User</p>
+            </a>
+          </li>
+
+        <li>
+              <a href="{{ path('app_partenaire_index') }}">
+            <i class="nc-icon nc-single-02"></i>
+              <p>Paretnaire</p>
+            </a>
+          </li> 
+         
+         <li>
+            <a href="{{ path('app_categorie_index') }}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie</p>
+            </a>
+          </li>
+
+         <li>
+            <a href="{{ path('app_evenement')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Evenment  </p>
+            </a>
+          </li>
+          
+
+            
+          
+              <li>
+            <a href="{{ path('aff_commande')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Commande </p>
+            </a>
+          </li>
+<li>
+
+            <a href="{{ path('display_menu')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Menu </p>
+            </a>
+
+          </li>
+          
+            
+          <li>
+            <a href="">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie Menu </p>
+            </a>
+          </li>
+
+              
+          <li>
+            <a href="{{ path('app_reservation')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Reservation </p>
+            </a>
+          </li>
+          
+           <li>
+            <a href="{{ path('app_home') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>home</p>
+            </a>
+          </li>
+
+          <li>
+          
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> Simple Table</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                USER
+                            </th>
+                            <th>
+                                Genre
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Num Tel
+                            </th>
+                            <th>
+                                Verification
+                            </th>
+
+                            <th>
+                                Delete
+                            </th>
+                            <th>
+                                Block
+                            </th>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for item in users %}
+
+                                <tr>
+
+
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                {# <img src="backPublic/assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1"> #}
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <p class="mb-0 text-sm">{{item.nom}}</p>
+                                                <h6 class="text-xs text-secondary mb-0">{{item.email}}</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="align-middle text-center text-sm " >
+                        {{ item.genre }}
+                                    </td>
+                                    <td class="align-middle text-center text-sm " >
+                                        <img alt="Image placeholder" src="{{asset('/uploads/' ~ item.image )}}">
+                                    </td>
+                                    <td class="align-middle text-center text-sm " >
+                                        telephone
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        {% if item.isVerified == 1 %}
+                                            <span class="badge badge-sm bg-gradient-success">Account Verfied</span>
+                                        {% else %}
+                                            <span class="badge badge-sm bg-gradient-success">Account Not Verfied</span>
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <td class="align-middle text-center">
+                                        {% if item.roles[0] != "ROLE_ADMIN" %}
+                                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                            <button class=" btn btn-outline-danger  mt-3 text-xs font-weight-bold"><a href="{{ path('DELETE_USER',{'id':item.id})  }}"> Delete </a> </button>
+                                        </a>
+                                    </td>
+                                    {% endif %}
+                                    <td><div class="d-flex">
+
+                                            {% if item.isverified == 1 %} <a
+                                                    href="{{ path ('desactiver-user', {'id' : item.id}) }}"
+                                                    class="btn btn-dark text-white" href="#">Bloquer</a>
+                                            {% else %}<a
+                                                href="{{ path ('activer-user', {'id' : item.id}) }}"
+                                                class="btn btn-pinterest " href="#">Débloquer</a> {% endif %}
+
+                                        </div></td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container py-5">
+        <div class="d-flex justify-content-center">
+
+
+        </div>
+    </div>
+    {% endblock %}
+    {% block nav %}
+    {# navbar bseka #}
+    <div class="fixed-plugin">
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+            <i class="fa-solid fa-user"></i>
+        </a>
+        <div class="card shadow-lg ">
+            <div class="card-header pb-0 pt-3 ">
+                <div class="float-start">
+                    <h5 class="mt-3 mb-0">Welcome {{app.user.nom}}</h5>
+                    <p> </p>
+                </div>
+                <div class="float-end mt-4">
+                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+                <!-- End Toggle Button -->
+            </div>
+            <hr class="horizontal dark my-1">
+            <div class="card-body pt-sm-3 pt-0">
+                <!-- Sidebar Backgrounds -->
+                <div>
+                    <h6 class="mb-0">Profile Pic</h6>
+                </div>
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <div class="badge-colors my-2 text-start">
+                        <img src="" class="image-ronde">
+                    </div>
+                </a>
+                <!-- Sidenav Type -->
+                <div class="mt-3">
+                    <h6 class="mb-0">change username </h6>
+                </div>
+                {#    here change  #}
+                <div class="mb-3">
+                    <label class="form-check-label"  class="text-dark font-weight-bolder">old password</label>
+                    <input type="password" class="form-control" placeholder="old password" aria-label="Name" aria-describedby="email-addon" required>
+                    <label class="form-check-label" for="flexCheckDefault" class="text-dark font-weight-bolder">new password</label>
+                    <input type="password" class="form-control" placeholder="New password" aria-label="Name" aria-describedby="email-addon" required>
+                    <label class="form-check-label" for="flexCheckDefault" class="text-dark font-weight-bolder">Confirm password</label>
+                    <input type="password" class="form-control" placeholder="Confirm password" aria-label="Name" aria-describedby="email-addon" required>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Confirm</button>
+                </div>
+
+
+
+                <div class="text-center">
+                    <button class="btn btn-outline-danger mt-3 text-secondary text-xs font-weight-bold"><a href="{{ path('app_logout')}}"> logout </a> </button>
+                </div>
+                {#    here change  #}
+
+            </div>
+
+            {% endblock %}

@@ -1,0 +1,16 @@
+{% for produit in produits %}
+    <div class="col-lg-6">
+        <div class="d-flex align-items-center">
+            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset('img/menu-1.jpg')}}" alt="" style="width: 80px;">
+            <div class="w-100 d-flex flex-column text-start ps-4">
+                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                    <span>{{ produit.name }}</span>
+                    <span class="text-primary">${{ produit.prix }}</span>
+                    <a href="{{ path('ajouter_produit_panier',{id : produit.id}) }}" class="btn btn-success float-right">
+                        <i class="fas fa-shopping-cart mr-1 "></i> ajouter au panier</a>
+                </h5>
+
+            </div>
+        </div>
+    </div>
+{% endfor %}

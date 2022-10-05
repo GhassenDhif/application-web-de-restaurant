@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Evenement index{% endblock %}
+
+
+
+{% block content %}
+
+          <li>
+            <a href="{{ path('app_dashboard') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+          <li  class="active">
+              <a href="{{ path('app_evenement') }}">
+            <i class="nc-icon nc-single-02"></i>
+              <p>Evenement</p>
+            </a>
+          </li> 
+
+          
+          <li>
+              <a href="{{ path('app_reservation') }}">
+            <i class="nc-icon nc-single-02"></i>
+              <p>Reservation</p>
+            </a>
+          </li> 
+    
+          
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+    <h1>Favourite Events </h1>
+
+
+<table class="table">
+
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+           <tr>
+                {% if evenement.Res==1 %}
+                <td>{{ evenement.nom }}</td>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+                <td> <img style="width: 100px" src="{{ asset('uploads/' ~ evenement.image) }}"> </td>
+                <td>
+                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}"><i class="fas fa-2x fa-eye"></i></a>
+                    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}"><i class="fas fa-2x fa-edit"></i></a>
+                     {{ include('evenement/_delete_form.html.twig') }}
+                </td>
+            </tr>
+                {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement_new') }}"><i class="fas fa-3x fa-plus-circle"></i></a>
+{% endblock %}

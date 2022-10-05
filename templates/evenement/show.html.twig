@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ evenement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                 <td> <img style="width: 100px" src="{{ asset('uploads/' ~ evenement.image) }}"> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement') }}"><i class="fas fa-2x fa-eye"></i></a>
+
+    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}"><i class="fas fa-2x fa-edit"></i></a>
+
+    {{ include('evenement/_delete_form.html.twig') }}
+{% endblock %}

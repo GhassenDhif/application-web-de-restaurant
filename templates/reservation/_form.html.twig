@@ -1,0 +1,8 @@
+{{ form_start(f, {'attr': {'novalidate': 'novalidate'}}) }}
+
+<div class="container">
+
+    {{ form_widget(f) }}
+</div>
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(f) }}

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Check To Eat</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{{asset('../assetf/img/favicon.ico')}}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset('../assetf/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('../assetf/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('../assetf/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('../assetf/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{asset('../assetf/css/style.css')}}" rel="stylesheet">
+
+    <link rel="{{asset('../assetsff/stylesheet')}}" type="text/css" href="css/bootstrap.css" />
+
+    <!--owl slider stylesheet -->
+    <link rel="{{asset('../assetsff/stylesheet')}}" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="{{asset('../assetsff/stylesheet')}}" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="{{asset('../assetsff/css/font-awesome.min.css')}}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{asset('../assetsff/css/style.css')}}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{{asset('../assetsff/css/responsive.css')}}" rel="stylesheet" />
+    <style>
+
+        .container {
+            overflow: hidden;
+        }
+
+        .filterDiv {
+            float: left;
+            background-color: #ffffff;
+            color: #000000;
+            width: 250px;
+            line-height: 200px;
+            text-align: center;
+            margin: 10px;
+            display: none; /* Hidden by default */
+        }
+
+        /* The "show" class is added to the filtered elements */
+        .show {
+            display: block;
+        }
+
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        /* Add a light grey background on mouse-over */
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Add a dark background to the active button */
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-10 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px- px-lg-5 py-15 py-lg-0">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+
+    </nav>
+
+    {% block content %}
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-xxl position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Check-To-Eat</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-10 pe-4">
+                    <a href="" class="nav-item nav-link ">Home</a>
+                    <a href="{{ path('app_home')}} " class="nav-item nav-link "> partenaire</a>
+                    <a href="{{path('eventee')}}" class="nav-item nav-link">Evenment</a>
+                    <a href="" class="nav-item nav-link">Menu</a>
+                    <a href="{{ path('app_commande') }}" class="nav-item nav-link active">Commande</a>
+
+                </div>
+
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0 pe-4">
+                    <!--      <a href="{{ path('app_partenaire_index') }}" class="nav-item nav-link active">partenaire</a>
+                     -->
+
+
+                </div>
+
+            </div>
+        </nav>
+
+        {% endblock %}
+
+        <div class="container-xxl py-5 bg-dark hero-header mb-5">
+            <div class="container my-5 py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h1 class="display-3 text-white animated slideInLeft">Profitez de notre<br>Repas délicieux</h1>
+                        <p class="text-white animated slideInLeft mb-4 pb-2"></p>
+                        <!--         <a href="{{path('app_home')}}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">home</a>
+                    -->
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                        <img class="img-fluid" src="../assetf/img/hero.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+
+
+    <!-- About Start -->
+    {#}
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{{asset('../assetf/img/about-1.jpg')}}">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="{{asset('../assetf/img/about-2.jpg')}}" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="{{asset('../assetf/img/about-3.jpg')}}">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{{asset('../assetf/img/about-4.jpg')}}">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+{#}
+
+    <!-- Menu Start -->
+
+    <div class="container-xxl py-5">
+        <div class="container">
+
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Nos categorie</h5>
+
+                {#<h1 class="mb-5">Most Popular Items</h1>#}
+            </div>
+            <br>
+            <br>
+
+            {% block body %}
+
+            {% endblock %}
+
+
+            {#}
+
+                          {% for categorie in categories %}
+                            {% for partenaire in partenaires %}
+
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-10">
+
+                        <li class="nav-item">
+
+                            <a class="d-flex align-items-center text-start mx-8 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+
+                            <a     href="{{ path('amine', {'id':partenaire.categorie.id}) }}">
+                              <i class="fa fa-coffee fa-2x text-primary"> </i>
+                                   </a>
+                               <h3 class="text-body">{{partenaire.categorie.type}}</h3>
+
+
+
+
+                            </a>
+
+                        </li>
+
+
+                     </ul>
+                   </div>
+
+
+
+                    </div>
+                     </div>
+
+
+{#}
+
+
+
+
+
+
+
+
+
+            {#}
+  <div class="container-xxl pt-10 pb-10">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6  col-sm-6 wow fadeInUp " data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-15">
+                       <a href="{{ path('app_partenaire_show', {'id': partenaire.id}) }}">
+                                <img class="img-fluid" src="{{ asset('uploads/' ~ partenaire.image) }}" alt="" style="width: 200px;">
+                                </a>
+                            </div>
+                            <h5 class="mb-0">{{partenaire.nom}}</h5>
+                            <small>{{partenaire.descr}}</small>
+
+                        <a href="{{ path('app_partenaire_show', {'id': partenaire.id}) }}">  <button type="button" class="btn btn-outline-warning">plus détailler</button> </a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                 {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+
+<h3>
+
+</h3>
+{#}
+            {#
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="../assetf/img/menu-4.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Chicken Burger</span>
+                            <span class="text-primary">$115</span>
+                        </h5>
+                        <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                    </div>
+                </div>
+            </div> #}
+
+
+        </div>
+
+
+        {# <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="{{asset('../assetf/img/menu-8.jpg')}}" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Chicken Burger</span>
+                                                <span class="text-primary">$115</span>
+                                            </h5>
+                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                        </div>
+                                    </div>
+                                </div> #}
+    </div>
+</div>
+
+{# </div>
+                </div>
+            </div> #}
+</div>
+<!-- Menu End -->
+
+
+
+
+<!--
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>esprit</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 51 833 422</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>mohamedamine.eloudi@esprit.tn</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">ouverture</h4>
+                <h5 class="text-light fw-normal">lundi - dimanche</h5>
+                <p>07AM - 00PM</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Control buttons -->
+
+
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+
+
+<!-- JavaScript Libraries -->
+
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current control button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
+
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('../assetf/lib/wow/wow.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/easing/easing.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/waypoints/waypoints.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/counterup/counterup.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/tempusdominus/js/moment.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
+<script src="{{asset('../assetf/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+
+<!-- Template Javascript -->
+<script src="{{asset('../assetf/js/main.js')}}"></script>
+</body>
+
+</html>

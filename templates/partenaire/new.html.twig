@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Partenaire{% endblock %}
+
+{% block body %}
+
+
+    <h3>Créer un Partenaire</h3>
+
+
+
+    {{ include('partenaire/_form.html.twig') }}
+
+    <a href="{{ path('app_partenaire_index') }}"><i class="fas fa-2x fa-hand-point-left"></i></a>
+
+
+
+    
+{% endblock %}

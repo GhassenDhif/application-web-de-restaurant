@@ -1,0 +1,33 @@
+<form action="{{ path('add_commande') }}"method="post">
+<table class="table table-striped" border="2">
+    <thead>
+    <tr>     <th>id</th>
+        <th>name</th>
+        <th>prix</th>
+        <th>commander</th>
+        <th>Suppression</th>
+        <th>modification</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for produit in produits %}
+        <tr>
+            <td>{{ produit.id }}</td>
+
+            <td>{{ produit.name}}</td>
+            <td>{{ produit.prix}}</td>
+            <td><input type="checkbox" name="{{ produit.id }}" value="{{ produit.name }}" /></td>
+            <td>
+{#                <a class="btn btn-success" href="{{ path('supp_panier',{'id':panier.id}) }}">Supprimer</a>#}
+            </td>
+            <td>
+{#                <a class="btn btn-danger" href="{{ path('modifPanier',{'id':panier.id}) }}">Modifier</a>#}
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+    <input type="submit" value="commander"/>
+</form>

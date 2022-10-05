@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaire index{% endblock %}
+
+
+{% block content %}
+
+          <li >
+            <a href="{{ path('app_dashboard') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+
+
+          <li class="active">
+              <a href="{{ path('app_partenaire_index') }}">
+          <i class="nc-icon nc-single-02"></i>
+              <p>Paretnaire</p>
+            </a>
+          </li> 
+        <li>
+            <a href="{{ path('app_categorie_index') }}">
+                   <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie</p>
+            </a>
+          </li> 
+
+{% endblock  %}
+
+{% block body %}
+    
+
+
+
+<div class="app-content">
+
+                <h4 class="page-title">statistiques</h4>
+            </div>
+            <div id="div_chart"></div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(piechart, 'div_chart') }}
+            </script>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+{% endblock  %}
+
+

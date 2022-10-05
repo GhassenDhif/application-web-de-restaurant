@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Check To Eat</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+ <title>{% block title %}Check-To-Eat{% endblock %}</title>
+    <!-- Favicon -->
+    <link href="{{asset('../assetf/img/favicon.ico')}}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset('../assetf/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('../assetf/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('../assetf/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('../assetf/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{asset('../assetf/css/style.css')}}" rel="stylesheet">
+
+ <link rel="{{asset('../assetsff/stylesheet')}}" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="{{asset('../assetsff/stylesheet')}}" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="{{asset('../assetsff/stylesheet')}}" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{{asset('../assetsff/css/font-awesome.min.css')}}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{{asset('../assetsff/css/style.css')}}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{asset('../assetsff/css/responsive.css')}}" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+{% block content %}
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Check-To-Eat</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                   <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-10 pe-4">
+                        <a href="" class="nav-item nav-link ">Home</a>
+                        <a href="{{ path('app_home')}} " class="nav-item nav-link "> partenaire</a>
+                        <a href="{{path('eventee')}}" class="nav-item nav-link active">Evenment</a>
+                        <a href="{{path('menu_front')}}" class="nav-item nav-link">Menu</a>
+                          <a href="{{path('app_commande')}}" class="nav-item nav-link">Commande</a>
+                   
+                    </div>
+                 
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                  <!--      <a href="{{ path('app_partenaire_index') }}" class="nav-item nav-link active">partenaire</a>
+                     -->
+                  
+                        
+                    </div>
+                 
+                </div>
+            </nav>
+
+            {% endblock %}
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                 <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container my-5 py-5">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="display-3 text-white animated slideInLeft">Profitez de notre<br>Repas délicieux</h1>
+                            <p class="text-white animated slideInLeft mb-4 pb-2"></p>
+                <!--         <a href="{{path('app_home')}}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">home</a>
+                    -->
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                            <img class="img-fluid" src="../assetf/img/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+
+
+        <!-- About Start -->
+        {#}
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{{asset('../assetf/img/about-1.jpg')}}">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="{{asset('../assetf/img/about-2.jpg')}}" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="{{asset('../assetf/img/about-3.jpg')}}">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{{asset('../assetf/img/about-4.jpg')}}">
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+{#}
+
+        <!-- Menu Start -->
+     
+  
+
+
+
+
+  <div class="container-xxl pt-10 pb-10">
+            <div class="container">
+
+                <div class="row">
+                   <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Nos evenement</h5>
+
+                </div>
+                <br>
+                <br>
+                {% for evenement in evenements %}
+                    <div class="col-lg-3 col-md-6  col-sm-6 wow fadeInUp " data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-15">
+                            
+                                <img class="img-fluid" src="{{ asset('uploads/' ~ evenement.image) }}" alt="" style="width: 200px;">
+                            </div>
+                            <h5 class="mb-0">{{evenement.nom}}</h5>
+                            <small>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</small>
+                           
+                        </div>
+                    </div>
+                     
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+ <a href="{{ path('app_reservation_new') }}"> <h3  class="section-title ff-secondary text-center text-primary fw-normal"> Cliquer ici pour faire une reservation !  </h3>
+</a>
+<br>
+<br>
+
+
+
+
+
+{#                               
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="../assetf/img/menu-4.jpg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Chicken Burger</span>
+                                                <span class="text-primary">$115</span>
+                                            </h5>
+                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                        </div>
+                                    </div>
+                                </div> #}
+                              
+                             
+                               </div>
+                      
+                      
+                                {# <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="{{asset('../assetf/img/menu-8.jpg')}}" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Chicken Burger</span>
+                                                <span class="text-primary">$115</span>
+                                            </h5>
+                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                        </div>
+                                    </div>
+                                </div> #}
+                            </div>
+                        </div>
+                       
+                    {# </div>
+                </div>
+            </div> #}
+        </div>
+        <!-- Menu End -->
+        
+        <!-- Reservation Start -->
+        <!-- <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row g-0">
+                
+                <div class="col-md-6 bg-dark d-flex align-items-center">
+                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
+                        <h1 class="text-white mb-4">Book A Table Online</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                           
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+
+
+       
+      <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>esprit</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 51 833 422</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>mohamedamine.eloudi@esprit.tn</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">ouverture</h4>
+                        <h5 class="text-light fw-normal">lundi - dimanche</h5>
+                        <p>07AM - 00PM</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('../assetf/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/tempusdominus/js/moment.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
+    <script src="{{asset('../assetf/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{asset('../assetf/js/main.js')}}"></script>
+</body>
+
+</html>

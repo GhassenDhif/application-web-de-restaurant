@@ -1,0 +1,217 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+     
+{% block content %}
+
+
+
+
+          <li >
+            <a href="{{ path('app_dashboard') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+   <li>
+
+            <a href="{{path('admin_list')}}">
+              <i class="nc-icon nc-bank"></i>
+              <p>User</p>
+            </a>
+          </li>
+
+   <li>
+              <a href="{{ path('app_partenaire_index') }}">
+            <i class="nc-icon nc-single-02"></i>
+              <p>Paretnaire</p>
+            </a>
+          </li> 
+         
+         <li class="active">
+            <a href="{{ path('app_categorie_index') }}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie</p>
+            </a>
+          </li>
+
+              <li>
+            <a href="{{ path('app_evenement')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Evenment  </p>
+            </a>
+          </li>
+          
+
+             
+          
+              <li>
+            <a href="">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Commande </p>
+            </a>
+          </li>
+
+          
+         <li>
+
+            <a href="{{ path('display_menu')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Menu </p>
+            </a>
+
+          </li>
+            
+          <li>
+            <a href="">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie Menu </p>
+            </a>
+          </li>
+
+              
+          <li>
+            <a href="{{ path('app_reservation')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Reservation </p>
+            </a>
+          </li>
+          
+           <li>
+            <a href="{{ path('app_home') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>home</p>
+            </a>
+          </li>
+
+          <li>
+          
+
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+<script>
+function showResult($type) {
+  if (type.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("livesearch").innerHTML=this.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+type,true);
+  xmlhttp.send();
+}
+</script>
+
+ 
+
+    <h3> Liste des Categorie</h3>
+
+    <div>
+   <!--<input id="search" type="text" class="form-control" name="query" placeholder="Chercher" aria-label="search" aria-describedby="search">-->
+    </div>
+  <!-- <th><button class="btn btn-primary btn-block" onclick="TriPRENOM()">Prenom</button></th>-->
+   
+    <table id="myTable" class="table">
+    
+        <thead>
+            <tr>
+             
+                <td>Type</td>
+                <th>actions</th>
+            </tr>
+        </thead>
+       
+        
+            
+           <tbody id="all">    
+               {% for categorie in categories %}
+            <tr  class="odd">
+               
+                <td id="livesearch">{{ categorie.type }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}"><i class="fas fa-2x fa-eye"></i></a>
+                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}"><i class="fas fa-2x fa-edit"></i></a>
+                     {{ include('categorie/_delete_form.html.twig') }}   
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+
+
+
+           
+
+        {% endfor %}
+
+        <br>
+        
+         {{ knp_pagination_render(categories) }}
+         
+     
+    
+ 
+      
+ </tbody>
+
+    </table>
+
+<a href="{{ path('app_categorie_new') }}"><i class="fas fa-3x fa-plus-circle"></i></a> 
+<br>
+ 
+
+ 
+<br>
+       <button type="button" class="btn btn-outline-info"><a href="{{path('liste')}}"><p> pdf </p></button>
+    <br>
+     
+   <script>
+        $( document ).ready(function() {
+            var currentRequest = null;
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                if(currentRequest != null) {
+                    currentRequest.abort();
+                }
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                « search » pour faire la recherche */
+                currentRequest = $.ajax({
+                    url : "{{ path('ajaxPost') }}",
+                    type : 'GET',
+                    data: {
+                        'searchValue' : value
+                    },
+                    success : function(retour)
+                    {
+                        $('#all').html(retour);
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+ 
+
+
+
+  {% endblock %}

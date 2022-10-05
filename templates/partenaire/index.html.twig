@@ -1,0 +1,249 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaire index{% endblock %}
+
+     
+{% block content %}
+
+
+
+
+          <li >
+            <a href="{{ path('app_dashboard') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+   <li >
+
+            <a href="{{path('admin_list')}}">
+              <i class="nc-icon nc-bank"></i>
+              <p>User</p>
+            </a>
+          </li>
+
+   <li class="active">
+              <a href="{{ path('app_partenaire_index') }}">
+            <i class="nc-icon nc-single-02"></i>
+              <p>Paretnaire</p>
+            </a>
+          </li> 
+         
+         <li>
+            <a href="{{ path('app_categorie_index') }}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie</p>
+            </a>
+          </li>
+
+              <li>
+            <a href="{{ path('app_evenement')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Evenment  </p>
+            </a>
+          </li>
+          
+
+            
+          
+              <li>
+            <a href="{{ path('aff_commande')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Commande </p>
+            </a>
+          </li>
+<li>
+
+            <a href="{{ path('display_menu')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Menu </p>
+            </a>
+
+          </li>
+          
+            
+          <li>
+            <a href="">
+            <i class="nc-icon nc-tile-56"></i>
+              <p>Categorie Menu </p>
+            </a>
+          </li>
+
+              
+          <li>
+            <a href="{{ path('app_reservation')}}">
+            <i class="nc-icon nc-tile-56"></i>
+              <p> Reservation </p>
+            </a>
+          </li>
+          
+           <li>
+            <a href="{{ path('app_home') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>home</p>
+            </a>
+          </li>
+
+          <li>
+          
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<script>
+function showResult($nom) {
+  if (nom.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("livesearch").innerHTML=this.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+nom,true);
+  xmlhttp.send();
+}
+</script>
+{% for message in app.flashes('info') %}
+                                                                <div  class="alert alert-success">
+                                                                    {{ message }}
+                                                            </div>
+                                                                {% endfor %}
+
+    <h3>Listes des Partenaire</h3>
+
+
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Datef</th>
+                <th>Local</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>categorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+        {% for partenaire in partenaires %}
+     
+
+
+
+            <tr>
+               
+                <td id="livesearch">{{ partenaire.nom }}</td>
+                <td>{{ partenaire.datef ? partenaire.datef|date('Y-m-d') : '' }}</td>
+                <td>{{ partenaire.local }}</td>
+                 <td> <img style="width: 100px" src="{{ asset('uploads/' ~ partenaire.image) }}"> </td>
+                 <td>{{ partenaire.descri }}</td>
+                <td>{{ partenaire.categorie.type}} </td>
+              
+                   <td>
+             {#}       <a href="{{ path('app_partenaire_show', {'id': partenaire.id}) }}"><i class="fas fa-2x fa-eye"></i></a> {#}
+                  
+              
+                  
+                    <a href="{{ path('app_partenaire_edit', {'id': partenaire.id}) }}"><i class="fas fa-2x fa-edit"></i></a>
+                    
+                    {{ include('partenaire/_delete_form.html.twig') }}   
+           
+                    
+   
+
+
+
+
+                  </td>
+            
+              
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+           
+
+         
+{% endfor %}
+    
+ 
+        </tbody>
+
+    </table>
+   <!--  <button type="button" onclick="a()"> Trier </button>  -->
+   
+    <a href="{{ path('app_partenaire_new') }}"><i class="fas fa-3x fa-plus-circle"></i></a>
+
+    
+   
+<br>
+<br>
+
+<button type="button" class="btn btn-outline-warning"> <a href="{{ path('pie') }}">Statistique</a></button>
+   <br>
+<a href="{{ path('app_partenaire_index')}}"><p> <h3> le nombre de partenaire : </h3> </p>
+</a>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: {{nombre}}%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="50">{{nombre}}</div>
+</div>         
+
+<script>
+
+$(document).on('keyup', '.search', function() {
+        var searchVal = $(this).val();
+        $.ajax({
+            url: Routing.generate('ajax_search_article'),
+            type: "POST",
+            dataType: "json",
+            data: {
+                "search": searchVal
+            },
+            success: function (response)
+            {
+                console.log(response);
+            }
+        });
+    });
+</script>
+                  
+     <script>
+    function a() {
+                var table, rows, switching, i, x, y, shouldSwitch,dir;
+                table = document.getElementById("t");
+                switching = true;
+                // Set the sorting direction to ascending:
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("TD")[1];
+                        y = rows[i + 1].getElementsByTagName("TD")[1];
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        } }
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+            
+ </script>
+{% endblock  %}
+
+

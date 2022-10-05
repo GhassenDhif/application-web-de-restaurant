@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PersonneController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+ <div style="display: flex:align-items: center;justify-content: center">
+     <table border="1">
+         <thead>
+         <th>nom</th>
+         <th>prenom</th>
+         <th>mot_pass</th>
+         <th>genre</th>
+         <th>adress_email</th>
+         <th>role</th>
+         <th>image</th>
+         <th>code</th>
+         <th>Modification</th>
+         <th>Suppression</th>
+         </thead>
+         <tbody>
+         {% for personne in p %}
+             <tr>
+                 <td>{{ personne.Nom }}</td>
+                 <td>{{ personne.Prenom }}</td>
+                 <td>{{ personne.MotPass }}</td>
+                 <td>{{ personne.Genre }}</td>
+                 <td>{{ personne.AdressEmail }}</td>
+                 <td>{{ personne.Role }}</td>
+                 <td>{{ personne.Image }}</td>
+                 <td>{{ personne.Code }}</td>
+                 <td>
+
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+ </div>
+ </div>
+{% endblock %}

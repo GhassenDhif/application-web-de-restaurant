@@ -1,0 +1,20 @@
+ <div class="container">
+            <div class="row">
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}})  }}
+
+
+    
+    {{ form_label (form.type,"le type est ")}}
+    {{ form_widget(form.type ,{'attr': {'class': 'form-inline'}}) }}
+     {{ form_errors(form.type) }} 
+
+<br>
+<br>
+<br>
+<br>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+</div>
+</div>
